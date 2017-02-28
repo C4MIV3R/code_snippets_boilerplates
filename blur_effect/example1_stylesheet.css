@@ -1,5 +1,5 @@
 .bottom_bg, .top_bg {
-    /* second background image to be blurred */
+    /* background image to be placed behind and second background image to be blurred */
     background-image: url('background_image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,6 @@
     position: relative;
 }
 .top_bg {
-    /* Absolutely position it, stretch to all four corners, then put it just behind aboutUs_bottom_content z-index */
     position: absolute;
     top: 0px;
     right: 0px;
@@ -25,7 +24,6 @@
     background-position: left -206px;
 }
 .bottom_content {
-    /* Put this on top of the blurred layer */
     position: relative;
     z-index: 100;
     padding-top: 5%;
