@@ -1,0 +1,37 @@
+.bottom_bg, .top_bg {
+    /* second background image to be blurred */
+    background-image: url('background_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bottom_bg {
+    background-position: center;
+}
+.bottom_container {
+    position: relative;
+}
+.top_bg {
+    /* Absolutely position it, stretch to all four corners, then put it just behind aboutUs_bottom_content z-index */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 99;
+    -webkit-filter: blur(10px);
+    filter: url('/media/blur.svg#blur');
+    filter: blur(10px);
+    margin-bottom: 0px !important;
+    background-position: left -206px;
+}
+.bottom_content {
+    /* Put this on top of the blurred layer */
+    position: relative;
+    z-index: 100;
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
+    background: rgb(40,40,40);
+    background: linear-gradient(0deg, rgba(100,100,100,0), rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.4) 80%, rgba(100,100,100,0));
+}
