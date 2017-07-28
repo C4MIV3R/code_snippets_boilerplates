@@ -26,5 +26,11 @@ jQuery('document').ready( function() {
   }
   psi_fade_product_images();
 
+  // PSIc0h --- removing product information after the product summary on certain pages (checking page IDs is done in functions.php)
+  // function psi_remove_product_info_after_product_sumamry() {
+  //   var pro_product_element = jQuery('#').clone();
+  //   jQuery('#').prepend(pro_product_element);
+  // }
+
 // end document.ready
 });
