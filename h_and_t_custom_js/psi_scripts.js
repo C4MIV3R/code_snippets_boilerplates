@@ -5,12 +5,13 @@
 */
 
 jQuery('document').ready( function() {
-  // PSIc0h --- moving product features from description to below add-to-cart button
+  // --- PSIc0h --- moving product features from description to below add-to-cart button
     var prepend_element = jQuery('#psi_product_features_interior');
     jQuery('#psi_product_features').prepend(prepend_element);
 
   // --- PSIc0h --- on hover fade 1st div out and fade 2nd div out, when hover stops, fade 2nd div out and fade 1st in
   // --- Works for whatever is named with the specific classes (psi_flip_wrapper is parent of both psi_flip_box_front and psi_flip_box_back)
+  // --- maybe need to move this out of the document.ready... but later
   function psi_fade_product_images() {
   var psi_target_front;
   var psi_target_back;
@@ -26,7 +27,7 @@ jQuery('document').ready( function() {
   }
   psi_fade_product_images();
 
-  // PSIc0h --- removing product information after the product summary on certain pages (checking page IDs is done in functions.php)
+  // --- PSIc0h --- removing product information after the product summary on certain pages (checking page IDs is done in functions.php)
   // function psi_remove_product_info_after_product_sumamry() {
   //   var pro_product_element = jQuery('#').clone();
   //   jQuery('#').prepend(pro_product_element);
