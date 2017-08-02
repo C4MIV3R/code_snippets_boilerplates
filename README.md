@@ -1,9 +1,10 @@
-# code_snippets_boilerplates
-- Repo to store various code snippets for reuse.
+# Code Snippets/Boilerplates/Custom Wordpress code
+- Repo to store various code snippets for reuse and backup
 
 ## Blur_Effect
 - HTML and CSS to achieve a clear background with a rectangle on top that blurs the background image only within the rectangle.
 - Originally built within a Wordpress site
+- explanations to be added soon, however, I need to remember how everything works again... 0_o
 
 ## h_and_t_custom_code
 - psi_scripts.js - two custom functions that accomplish the following:
