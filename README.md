@@ -13,4 +13,4 @@
 - 404.php - a temporary 404 page for a website. Very basic functionality, but would be easier to just clone from here if another website needed a 404 page.
 
 ## we_custom_code
-- Working on this as time goes on. This will be series of custom javascript for bios for the WE team.
+- Working on this as functionality is needed on the company site.
