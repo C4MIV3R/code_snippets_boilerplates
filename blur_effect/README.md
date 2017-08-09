@@ -9,3 +9,8 @@
 ## Sources:
 Thanks to Jordan Hollinger for writing the post below, it helped me get an MVP working that I could then build into the final version:
 - https://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box/
+
+
+## License:
+- MIT
+- For more information see license file.
