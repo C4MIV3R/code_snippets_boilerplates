@@ -98,10 +98,24 @@ add_action('wp_enqueue_scripts', 'psi_load_scripts' );
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 // -------------------- PSIc0h -------------------- TESTING --------------------
+// idea: Run 3 loops to find a) the variations associated with the products on the page, b) the WooCommerce attributes c) find the matches between the two
+// push terms into array and use that to compare?
+// idk - i think im missing something...
 function psi_testing() {
+  global $product;
+
   $psi_getTerms = get_terms(array('taxonomy' => 'pa_color'));
 	foreach ($psi_getTerms as $psi_testing_var) {
     $psi_pa_color_slug = $psi_testing_var->slug;
+  }
+
+  if ($product->product_type == 'variable') {
+    foreach ($product->get_available_variations() as $key) {
+    $psi_product_slug = $product->get_slug();
+      foreach ($key['attributes'] as $attr_name => $attr_value) {
+        echo '<a href="/product/'.$psi_product_slug.'?attribute_pa_color='.$attr_value.'"><div class="psi_shop_swatches"><img src="'.$site_url.'/wp-content/uploads/2017/05/psi_swatch_'.$attr_value.'.jpg"></div></a>';
+      }
+    }
   }
 }
 add_action('wp_footer','psi_testing');
