@@ -61,13 +61,14 @@ add_action('woocommerce_before_main_content','psi_image_above_product');
 
 // -------------------- PSIc0h -------------------- TESTING --------------------
 function psi_testing() {
-  global $getTerms;
+  global $psi_psi_getTerms;
+  global $psi_pa_color_slug;
 
-  $getTerms = get_terms();
-	foreach ($getTerms->)
-
+  $psi_getTerms = get_terms(array('taxonomy' => 'pa_color'));
+	foreach ($psi_getTerms as $psi_testing_var) {
+    $psi_pa_color_slug = $psi_testing_var->slug;
+    console_log('<a href="/product/'.$psi_product_slug.'?attribute_pa_color='.$psi_pa_color_slug.'"><div class="psi_shop_swatches"><img src="'.$site_url.'/wp-content/uploads/2017/05/psi_swatch_'.$psi_pa_color_slug.'.jpg"></div></a>');
   }
-console_log($getTerms);
 }
 add_action('wp_footer','psi_testing');
 
