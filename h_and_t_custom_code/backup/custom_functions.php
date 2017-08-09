@@ -59,19 +59,6 @@ function psi_image_above_product() {
 }
 add_action('woocommerce_before_main_content','psi_image_above_product');
 
-// -------------------- PSIc0h -------------------- TESTING --------------------
-function psi_testing() {
-  global $psi_psi_getTerms;
-  global $psi_pa_color_slug;
-
-  $psi_getTerms = get_terms(array('taxonomy' => 'pa_color'));
-	foreach ($psi_getTerms as $psi_testing_var) {
-    $psi_pa_color_slug = $psi_testing_var->slug;
-    console_log('<a href="/product/'.$psi_product_slug.'?attribute_pa_color='.$psi_pa_color_slug.'"><div class="psi_shop_swatches"><img src="'.$site_url.'/wp-content/uploads/2017/05/psi_swatch_'.$psi_pa_color_slug.'.jpg"></div></a>');
-  }
-}
-add_action('wp_footer','psi_testing');
-
 // -------------------- PSIc0h -------------------- Holding container for 'product features/interior compartments fit' sections --------------------
 function psi_product_features() {
 	echo '<div id="psi_product_features"></div>';
@@ -80,22 +67,22 @@ add_action('woocommerce_share', 'psi_product_features');
 
 // -------------------- PSIc0h -------------------- Main Shop - swatches --------------------
 // Currently is pulling from $product->attributes - should try to pull from WooCommerce terms ... get_terms() is a way to get all terms
-function psi_product_info_shop() {
+function psi_product_swatches_shop() {
 	global $product;
+
 	if ($product->product_type == 'variable') {
 		foreach ($product->get_available_variations() as $key) {
 		$psi_product_slug = $product->get_slug();
-			foreach ( $key['attributes'] as $attr_name => $attr_value) {
+			foreach ($key['attributes'] as $attr_name => $attr_value) {
 				echo '<a href="/product/'.$psi_product_slug.'?attribute_pa_color='.$attr_value.'"><div class="psi_shop_swatches"><img src="'.$site_url.'/wp-content/uploads/2017/05/psi_swatch_'.$attr_value.'.jpg"></div></a>';
 			}
 		}
 	}
 }
-add_action( 'woocommerce_after_shop_loop_item', 'psi_product_info_shop' );
-
+add_action('woocommerce_after_shop_loop_item', 'psi_product_swatches_shop' );
 
 // -------------------- PSIc0h -------------------- Remove Additional Information tab on product pages --------------------
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 function woo_remove_product_tabs( $tabs ) {
     unset( $tabs['additional_information'] );  	// Remove the additional information tab
     return $tabs;
@@ -105,10 +92,18 @@ function woo_remove_product_tabs( $tabs ) {
 function psi_load_scripts() {
 	wp_enqueue_script( 'psi_scripts', get_template_directory_uri() . '/js/psi_scripts.js', array( 'jquery' ) );
 }
-add_action( 'wp_enqueue_scripts', 'psi_load_scripts' );
+add_action('wp_enqueue_scripts', 'psi_load_scripts' );
 
 // -------------------- PSIc0h -------------------- removing related products from product pages --------------------
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+// -------------------- PSIc0h -------------------- TESTING --------------------
+function psi_testing() {
+  $psi_getTerms = get_terms(array('taxonomy' => 'pa_color'));
+	foreach ($psi_getTerms as $psi_testing_var) {
+    $psi_pa_color_slug = $psi_testing_var->slug;
+  }
+}
+add_action('wp_footer','psi_testing');
 
 ?>
