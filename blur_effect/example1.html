@@ -1,15 +1,20 @@
-<!-- This was done to achieve a blurred background effect within a specific rectangle area then place clear text over the top - in Wordpress -->
-<!-- Thanks to Jordan Hollinger for writing this post up: https://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box/ -->
-<!-- That post helped me get an MVP working that I could then build into the final version -->
+<!-- .bottom_bg is the image that you would like to be placed behind the blur effect.
+Said another way - it is the part of the image you want to be in focus/unblurred. -->
 <div class="bottom_bg">
-    <!-- explanation soon --> 
+    <!-- .bottom_container is just taking advantage of the ability to position a parent element relatively and
+      the child elements absolutely to position those child elements absolutely ONLY within the parent element
+      instead of the entire document. -->
     <div class="bottom_container">
-        <!-- explanation soon -->		
+        <!--  -->
         <div class="top_bg"></div>
-        <!-- explanation soon -->
-        <div class="bottom_content">
+        <!-- end top_bg -->
+        <!-- .top_content is where your text will appear over the top of the blurred image -->
+        <div class="top_content">
             <p>Lorem ipsum dolor sit amet. et cetera.<p>
             <p>Lorem ipsum dolor sit amet. et cetera.</p>
         </div>
+        <!--  end top_content -->
     </div>
+    <!-- end bottom_container -->
 </div>
+<!-- end bottom_bg -->
